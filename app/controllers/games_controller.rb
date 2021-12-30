@@ -1,9 +1,10 @@
 class GamesController < ApplicationController
+  before_action :authorized
   before_action :set_game, only: [:show, :update, :destroy]
 
   # GET /games
   def index
-    @games = Game.all
+    @games = Game.where(user_id: @user.id)
 
     render json: @games
   end
@@ -16,6 +17,7 @@ class GamesController < ApplicationController
   # POST /games
   def create
     @game = Game.new(game_params)
+    @game.user = @user
 
     if @game.save
       render json: @game, status: :created, location: @game
