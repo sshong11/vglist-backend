@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :games
+  resources :games do
+    resources :reviews
+  end
 
   resource :users, only: [:create]
   post "/login", to: "users#login"

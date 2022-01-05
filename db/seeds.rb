@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(username: "testuser", password: "testuser123!")
+
+Game.create([name: "testgame", score: 10])
