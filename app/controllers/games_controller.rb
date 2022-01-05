@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authorized
+  before_action :authorized, except: [:show]
   before_action :set_game, only: [:show, :update, :destroy]
 
   # GET /games
@@ -38,6 +38,12 @@ class GamesController < ApplicationController
   # DELETE /games/1
   def destroy
     @game.destroy
+  end
+
+  def allgames
+    @games = Game.all
+
+    render json: @games
   end
 
   private
