@@ -27,6 +27,12 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    def allusers
+        @users = User.select(:username)
+
+        render json: @users
+    end
+
     private
 
     def user_params
