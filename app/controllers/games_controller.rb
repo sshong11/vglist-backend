@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authorized, except: [:allgames]
+  before_action :authorized, except: [:allgames, :show]
   before_action :set_game, only: [:show, :update, :destroy]
 
   # GET /games
